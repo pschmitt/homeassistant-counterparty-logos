@@ -1,0 +1,18 @@
+{
+  "domain": "counterparty_logos",
+  "name": "Counterparty Logos",
+  "codeowners": [
+    "@pschmitt"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/pschmitt/homeassistant-counterparty-logos",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/pschmitt/homeassistant-counterparty-logos/issues",
+  "loggers": [
+    "custom_components.counterparty_logos"
+  ],
+  "requirements": [],
+  "single_config_entry": true,
+  "version": "0.1.0"
+}

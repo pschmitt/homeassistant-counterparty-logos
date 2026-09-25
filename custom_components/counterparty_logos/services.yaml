@@ -1,0 +1,18 @@
+lookup:
+  fields:
+    name:
+      required: true
+      example: "VISA EDEKA 2143"
+      selector:
+        text:
+          multiple: true
+refresh:
+  fields:
+    retry_unmatched:
+      default: false
+      selector:
+        boolean:
+    clear_cache:
+      default: false
+      selector:
+        boolean:

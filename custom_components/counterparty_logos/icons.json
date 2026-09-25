@@ -1,0 +1,10 @@
+{
+  "services": {
+    "lookup": {
+      "service": "mdi:magnify"
+    },
+    "refresh": {
+      "service": "mdi:refresh"
+    }
+  }
+}

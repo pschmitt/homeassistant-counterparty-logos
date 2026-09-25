@@ -1,0 +1,97 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Counterparty Logos",
+        "description": "Logos for bank transaction counterparties. Names from every entity with a `transactions` attribute are matched to brand domains, and the results are cached. Overrides go in `counterparty_logos.yaml` in your config directory.",
+        "data": {
+          "logo_dev_publishable_key": "logo.dev publishable key (pk_…)",
+          "logo_dev_secret_key": "logo.dev secret key (sk_…)",
+          "brandfetch_client_id": "Brandfetch client ID",
+          "image_provider": "Logo image provider",
+          "name_attributes": "Transaction name attributes"
+        },
+        "data_description": {
+          "logo_dev_publishable_key": "Used to display logos from img.logo.dev.",
+          "logo_dev_secret_key": "Optional. Enables logo.dev's Search API to match names to domains (searched before Brandfetch).",
+          "brandfetch_client_id": "Enables Brandfetch's Brand Search API and, if selected, Brandfetch logo images.",
+          "image_provider": "Which CDN the logo URLs point to. Logos are hotlinked, never downloaded.",
+          "name_attributes": "Keys inside the `transactions` attribute of any entity that hold counterparty names."
+        }
+      }
+    },
+    "error": {
+      "no_image_provider": "Enter a logo.dev publishable key or a Brandfetch client ID.",
+      "required_for_provider": "Required for the selected image provider.",
+      "invalid_publishable_key": "Publishable keys start with pk_.",
+      "invalid_auth": "The provider rejected this key.",
+      "cannot_connect": "Could not reach the provider."
+    },
+    "abort": {
+      "single_instance_allowed": "Already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Counterparty Logos settings",
+        "description": "Logos for bank transaction counterparties. Names from every entity with a `transactions` attribute are matched to brand domains, and the results are cached. Overrides go in `counterparty_logos.yaml` in your config directory.",
+        "data": {
+          "logo_dev_publishable_key": "logo.dev publishable key (pk_…)",
+          "logo_dev_secret_key": "logo.dev secret key (sk_…)",
+          "brandfetch_client_id": "Brandfetch client ID",
+          "image_provider": "Logo image provider",
+          "name_attributes": "Transaction name attributes"
+        },
+        "data_description": {
+          "logo_dev_publishable_key": "Used to display logos from img.logo.dev.",
+          "logo_dev_secret_key": "Optional. Enables logo.dev's Search API to match names to domains (searched before Brandfetch).",
+          "brandfetch_client_id": "Enables Brandfetch's Brand Search API and, if selected, Brandfetch logo images.",
+          "image_provider": "Which CDN the logo URLs point to. Logos are hotlinked, never downloaded.",
+          "name_attributes": "Keys inside the `transactions` attribute of any entity that hold counterparty names."
+        }
+      }
+    },
+    "error": {
+      "no_image_provider": "Enter a logo.dev publishable key or a Brandfetch client ID.",
+      "required_for_provider": "Required for the selected image provider.",
+      "invalid_publishable_key": "Publishable keys start with pk_.",
+      "invalid_auth": "The provider rejected this key.",
+      "cannot_connect": "Could not reach the provider."
+    }
+  },
+  "selector": {
+    "image_provider": {
+      "options": {
+        "logo_dev": "logo.dev",
+        "brandfetch": "Brandfetch"
+      }
+    }
+  },
+  "services": {
+    "lookup": {
+      "name": "Look up logo",
+      "description": "Resolve counterparty names to a brand domain and logo URL. Searches uncached names.",
+      "fields": {
+        "name": {
+          "name": "Name",
+          "description": "Raw counterparty names as they appear in transactions."
+        }
+      }
+    },
+    "refresh": {
+      "name": "Refresh",
+      "description": "Rescan all transaction entities for counterparty names.",
+      "fields": {
+        "retry_unmatched": {
+          "name": "Retry unmatched",
+          "description": "Search names again that previously had no match."
+        },
+        "clear_cache": {
+          "name": "Clear cache",
+          "description": "Forget all cached matches and search everything again."
+        }
+      }
+    }
+  }
+}
