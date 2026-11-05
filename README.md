@@ -1,5 +1,7 @@
 # Counterparty Logos for Home Assistant
 
+[![Open this integration in Home Assistant Marketplace](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=pschmitt&repository=homeassistant-counterparty-logos&category=integration)
+
 `counterparty_logos` is a Home Assistant custom integration that finds brand
 logos for the counterparties in your bank transactions ("VISA EDEKA 2143" →
 EDEKA logo), using [logo.dev](https://www.logo.dev) and
@@ -92,10 +94,13 @@ response_variable: result
 
 ## Installation
 
-### HACS
+### Marketplace / HACS
 
-Add this repository as a custom repository (category: Integration), install
-it, and restart Home Assistant.
+Click the Marketplace badge above to add this repository as a custom integration
+(Home Assistant 2026.11 or later). On older versions, add
+`https://github.com/pschmitt/homeassistant-counterparty-logos` under
+HACS → Integrations → ⋮ → Custom repositories (Integration). Install it and
+restart Home Assistant.
 
 ### Manual
 
